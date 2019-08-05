@@ -4,7 +4,9 @@ node {
     checkout scm
   }
   stage('NPM Install'){
+    nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
     sh 'npm install'
+  }
   }
   
 }
