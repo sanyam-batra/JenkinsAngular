@@ -10,7 +10,9 @@ node {
   }
   stage('Test'){
      nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
+       withEnv(["CHROME_BIN=/usr/bin/chromium"]) {
     sh 'npm run test --progress=false --watch=false --browsers=ChromeHeadless'
+     }
      }
     junit '**/test-results.xml'
   }
