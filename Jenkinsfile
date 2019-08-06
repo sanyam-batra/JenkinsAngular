@@ -10,7 +10,7 @@ node {
   }
   stage('Test'){
      nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
-    sh 'npm run test'
+    sh 'npm run test --progress=false --watch=false --browsers=ChromeHeadless'
      }
     junit '**/test-results.xml'
   }
