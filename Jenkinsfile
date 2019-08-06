@@ -10,7 +10,7 @@ node {
   }
   stage('Test'){
      nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
-       sh'npm install karma-phatomjs-launcher --save-dev'
+       sh'npm install --save-dev karma-phantomjs-launcher'
        withEnv(["PHANTOMJS_BIN=/usr/local/bin/phantomjs"]) {
     sh 'npm run test --progess=false --watch=false --browsers=PhantomJS'
      }
