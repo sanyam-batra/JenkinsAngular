@@ -28,12 +28,6 @@ module.exports = function(config) {
       Chrome_travis_ci: {
         base: 'Chrome',
         flags: ['--no-sandbox']
-      },
-      FirefoxHeadless: {
-        base : 'Firefox',
-        flags : [
-          '-headless'
-          ]
       }
     },
 
