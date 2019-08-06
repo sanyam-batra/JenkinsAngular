@@ -22,7 +22,7 @@ module.exports = function(config) {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     
-    
+    browsers: ['FirefoxHeadless'],
     customLaunchers: {
       // From the CLI. Not used here but interesting
       // chrome setup for travis CI using chromium
@@ -30,9 +30,11 @@ module.exports = function(config) {
         base: 'Chrome',
         flags: ['--no-sandbox']
       },
-      ChromeHeadless: {
-        base : 'ChromeHeadless',
-        flags :['--no-sandbox']
+      FirefoxHeadless: {
+        base : 'Firefox',
+        flags : [
+          '-headless',
+          ],
       }
     },
 
