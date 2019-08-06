@@ -10,7 +10,7 @@ node {
   }
   stage('Test'){
      nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
-       withEnv(["CHROME_BIN=/usr/bin/firefox"]) {
+       withEnv(["FIREFOX_BIN=/usr/bin/firefox"]) {
     sh 'npm run test --progess=false --watch=false --browsers=FirefoxHeadless'
      }
      }
