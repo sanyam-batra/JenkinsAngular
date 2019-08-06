@@ -8,7 +8,7 @@ node {
   }
   }
   stage('Test'){
-    
+    sh 'ng test --progress=false --watch=false --browsers=ChromeHeadless'
+    junit '**/test-results.xml'
   }
-  
 }
