@@ -22,6 +22,7 @@ module.exports = function(config) {
       builtPaths: [appBase, testingBase], // add more spec base paths as needed
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
+    
     customLaunchers: {
       // From the CLI. Not used here but interesting
       // chrome setup for travis CI using chromium
@@ -91,7 +92,7 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome','FirefoxHeadless','Firefox'],
+    browsers: ['Chrome'],
     singleRun: false
   })
 }
