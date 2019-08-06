@@ -32,8 +32,8 @@ module.exports = function(config) {
       FirefoxHeadless: {
         base : 'Firefox',
         flags : [
-          '-headless',
-          ],
+          '-headless'
+          ]
       }
     },
 
@@ -97,7 +97,7 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome','FirefoxHeadless'],
+    browsers: ['Chrome','FirefoxHeadless','Firefox'],
     singleRun: false
   })
 }
