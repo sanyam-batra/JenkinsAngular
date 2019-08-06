@@ -14,7 +14,8 @@ module.exports = function(config) {
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
-      require('karma-jasmine-html-reporter')
+      require('karma-jasmine-html-reporter'),
+      'karma-firefox-launcher',
     ],
 
     client: {
@@ -28,6 +29,10 @@ module.exports = function(config) {
       Chrome_travis_ci: {
         base: 'Chrome',
         flags: ['--no-sandbox']
+      },
+      Firefoxheadless: {
+        base: 'Firefox',
+        flags: ['-headless']
       }
     },
 
@@ -91,7 +96,7 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['Chrome', 'Firefox],
     singleRun: false
   })
 }
