@@ -14,6 +14,7 @@ module.exports = function(config) {
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
+      require('karma-firefox-launcher'),
       require('karma-jasmine-html-reporter')
     ],
 
@@ -21,8 +22,6 @@ module.exports = function(config) {
       builtPaths: [appBase, testingBase], // add more spec base paths as needed
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
-    
-    browsers: ['FirefoxHeadless'],
     customLaunchers: {
       // From the CLI. Not used here but interesting
       // chrome setup for travis CI using chromium
@@ -98,7 +97,7 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['Chrome','FirefoxHeadless'],
     singleRun: false
   })
 }
