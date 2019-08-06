@@ -11,7 +11,7 @@ node {
   stage('Test'){
      nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
        withEnv(["CHROME_BIN=/usr/bin/chromium"]) {
-    sh 'npm run e2e'
+    sh 'npm run test --progess=false --watch=false --browsers=ChromeHeadless'
      }
      }
     junit '**/test-results.xml'
