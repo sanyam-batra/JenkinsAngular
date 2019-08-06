@@ -10,7 +10,7 @@ node {
   }
   stage('Test'){
      nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
-    sh 'ng e2e'
+    sh 'npm run test'
      }
     junit '**/test-results.xml'
   }
