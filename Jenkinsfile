@@ -11,7 +11,7 @@ node {
   stage('Test'){
      nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
        withEnv(["FIREFOX_BIN=/usr/bin/firefox"]) {
-    sh 'npm run test --progess=false --watch=false'
+    sh 'npm run test --progess=false --watch=false --browsers=Firefoxheadless'
      }
      }
     junit '**/test-results.xml'
