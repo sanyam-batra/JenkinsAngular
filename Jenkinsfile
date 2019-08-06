@@ -10,6 +10,7 @@ node {
   }
   stage('Test'){
      nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
+       sh'npm i -D karma-chrome-launcher'
        withEnv(["CHROME_BIN=/usr/bin/chromium"]) {
     sh 'npm run test --progess=false --watch=false --browsers=ChromeHeadless'
      }
