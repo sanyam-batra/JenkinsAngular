@@ -5,6 +5,7 @@ node {
   stage('NPM Install'){
     nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
     sh 'npm install'
+    sh 'npm install npm@latest -g'
   }
   }
   stage('Test'){
