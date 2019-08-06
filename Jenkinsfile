@@ -10,7 +10,7 @@ node {
   }
   stage('Test'){
      nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
-    sh 'ng test --progress=false --watch=false --browsers=ChromeHeadless'
+    sh 'ng e2e'
      }
     junit '**/test-results.xml'
   }
