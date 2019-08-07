@@ -29,9 +29,9 @@ module.exports = function(config) {
         base: 'Chrome',
         flags: ['--no-sandbox']
       },
-      Firefox: {
-        base: 'Firefox',
-        flags: ['-headless']
+      ChromeHeadless: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox']
       }
     },
 
@@ -95,7 +95,7 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Firefox'],
+    browsers: ['Firefox','ChromeHeadless','Chrome'],
     singleRun: false
   })
 }
