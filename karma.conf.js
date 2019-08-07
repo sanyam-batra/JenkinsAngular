@@ -95,7 +95,7 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Firefox','ChromeHeadless','Chrome'],
+    browsers: ['ChromeHeadless','Chrome'],
     singleRun: false
   })
 }
