@@ -12,7 +12,7 @@ node {
     def scannerHome = tool 'angular_sonar';
     withSonarQubeEnv('SonarQube') {
       
-      sh'${scannerHome}/bin/sonar-scanner'
+      sh'npm run sonar-scanner'
     }
   }
 }
