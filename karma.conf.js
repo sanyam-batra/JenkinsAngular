@@ -32,7 +32,7 @@ module.exports = function(config) {
       },
       ChromeHeadless: {
         base: 'Chrome',
-        flags: ['--no-sandbox',
+        flags: [
                 '--headless'
                ]
       }
