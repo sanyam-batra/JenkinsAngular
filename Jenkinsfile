@@ -19,4 +19,9 @@ node {
       sh'npm run build'
     }
   }
+  stage('Serve/Run') {
+    nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
+      sh 'npm run serve'
+    }
+  }
 }
