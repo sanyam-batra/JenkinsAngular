@@ -9,9 +9,10 @@ node {
   }
   }
   stage('Sonar') {
+    def scannerHome = tool 'angular_sonar';
     withSonarQubeEnv('SonarQube') {
       
-      sh'sonar-scanner'
+      sh'${scannerHome}/bin/sonar-scanner'
     }
   }
 }
