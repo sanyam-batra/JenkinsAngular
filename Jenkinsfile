@@ -8,20 +8,20 @@ node {
     sh 'npm install npm@latest -g'
   }
   }
-  /*stage('Sonar') {
+  stage('Sonar') {
     def scannerHome = tool 'angular_sonar';
     withSonarQubeEnv('SonarQube') {
       sh'${scannerHome}/bin/sonar-scanner'
     }
-  }*/
+  }
   stage('Build') {
     nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
       sh'npm run build'
     }
   }
-  stage('Serve/Run') {
+  /*stage('Serve/Run') {
     nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
       sh 'npm run serve'
     }
-  }
+  }*/
 }
