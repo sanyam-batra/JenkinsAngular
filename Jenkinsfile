@@ -21,6 +21,9 @@ node {
   }
   stage('StartApp') {
     nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
+      sh'npm install @types/jasmine'
+      sh'npm install "concurrently"'
+      sh'npm install "lite-server"'
       sh 'npm run start'
     }
   }
