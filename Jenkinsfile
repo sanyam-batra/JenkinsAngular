@@ -19,9 +19,9 @@ node {
       sh'npm run build'
     }
   }
-  /*stage('Serve/Run') {
+  stage('StartApp') {
     nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
-      sh 'npm run serve'
+      sh 'npm run start'
     }
-  }*/
+  }
 }
