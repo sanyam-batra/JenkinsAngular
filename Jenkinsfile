@@ -24,7 +24,7 @@ node {
       sh'npm install @types/jasmine'
       sh'npm install "concurrently"'
       sh'npm install "lite-server"'
-      sh 'npm run start'
+      sh 'ng serve'
     }
   }
 }
