@@ -21,12 +21,7 @@ node {
   }
   stage('StartApp') {
     nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
-      sh'npm install -g @angular/cli'
-      sh'ng update @angular/cli --migrate-only --from=1.7.4'
-      sh'npm install @types/jasmine'
-      sh'npm install "concurrently"'
-      sh'npm install "lite-server"'
-      sh 'ng serve'
+      sh 'npm run start'
     }
   }
 }
