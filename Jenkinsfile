@@ -21,7 +21,8 @@ node {
   }
   stage('StartApp') {
     nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
-      sh 'npm run start'
+      sh'npm install http-server -g'
+      sh'http-server -o'
     }
   }
 }
