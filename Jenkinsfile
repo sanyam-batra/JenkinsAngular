@@ -22,7 +22,7 @@ node {
   stage('NPM Install'){
     nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
     sh 'npm install'
-    sh 'npm install npm@latest -g'
+    //sh 'npm install npm@latest -g'
   }
   }
   /*stage('Sonar') {
@@ -46,7 +46,7 @@ node {
 response = jiraNewIssue issue: testIssue, site: 'JIRA'
 
 echo response.successful.toString()
-echo response.data.toString()[1]
+echo response.data.toString()['key']
     }
   }
   
