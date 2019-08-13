@@ -33,7 +33,7 @@ node {
   }*/
   stage('Build') {
     nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
-      sh'npm run buil'
+      sh'npm run build'
     }
   }
   
