@@ -34,7 +34,7 @@ node {
   stage('Build') {
     try {
     nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
-      sh'npm run build'
+      sh'npm run buil'
     }
     }
     catch(exec){
