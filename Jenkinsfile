@@ -46,7 +46,7 @@ node {
 response = jiraNewIssue issue: testIssue, site: 'JIRA'
 
 echo response.successful.toString()
-echo response.data.toString()
+echo response.data.toString()[1]
     }
   }
   
