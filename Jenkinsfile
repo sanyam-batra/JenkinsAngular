@@ -1,4 +1,5 @@
 def jiraticket() {
+{
     "fields": {
        "project":
        {
@@ -12,7 +13,7 @@ def jiraticket() {
       "assignee":{"name":"batsam98"}
    }
 }
-
+}
 
 node {
   stage('Checkout'){
