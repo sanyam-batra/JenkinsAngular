@@ -47,7 +47,7 @@ response = jiraNewIssue issue: testIssue, site: 'JIRA'
 
 echo response.successful.toString()
 echo response.data.toString()
-     jiraAssignIssue idOrKey: 'AN-10', userName: 'batsam98'
+     jiraAssignIssue Key: 'AN-11', userName: 'batsam98',site: 'JIRA'
     }
   }
   
