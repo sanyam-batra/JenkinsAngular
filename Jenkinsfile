@@ -56,11 +56,11 @@ node {
                            description: 'Creating jira issue as build failed.',
                            issuetype: [id: '10002']]]
 
-response = jiraNewIssue issue: testIssue, site: 'LOCAL'
+response = jiraNewIssue issue: testIssue, site: 'http://localhost:8054'
 
-/*echo response.successful.toString()
-echo response.data.toString()*/
-    jiraAssignIssue idOrKey: 'AN-1', userName: 'batsam98'
+echo response.successful.toString()
+echo response.data.toString()
+    
   }
   }
 }
