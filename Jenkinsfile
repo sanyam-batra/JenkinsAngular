@@ -50,7 +50,8 @@ node {
       echo 'Success'
     }
     failure {
-      stage('JIRA') {
+      echo 'Failure'
+      /*stage('JIRA') {
     def testIssue = [fields: [ project: [id: 'AN'],
                            summary: 'New JIRA Created from Jenkins.',
                            description: 'Creating jira issue as build failed.',
@@ -61,7 +62,7 @@ response = jiraNewIssue issue: testIssue, site: 'http://localhost:8054'
 echo response.successful.toString()
 echo response.data.toString()
     
-  }
+  }*/
   }
 }
 }
