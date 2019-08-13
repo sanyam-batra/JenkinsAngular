@@ -1,5 +1,5 @@
-def jiraticket() {
-{
+/*def jiraticket() {
+
     "fields": {
        "project":
        {
@@ -12,8 +12,8 @@ def jiraticket() {
        },
       "assignee":{"name":"batsam98"}
    }
-}
-}
+}*/
+
 
 node {
   stage('Checkout'){
@@ -50,7 +50,18 @@ node {
       echo 'Success'
     }
     failure {
-      jiraticket()
+      "fields": {
+       "project":
+       {
+          "key": "AN"
+       },
+       "summary": "Jira issue from jenkins",
+       "description": "Creating jira issue as build failed.",
+       "issuetype": {
+          "name": "Bug"
+       },
+      "assignee":{"name":"batsam98"}
     }
   }
+}
 }
