@@ -50,18 +50,18 @@ node {
       echo 'Success'
     }
     failure {
-      "fields": {
-       "project":
-       {
-          "key": "AN"
-       },
-       "summary": "Jira issue from jenkins",
-       "description": "Creating jira issue as build failed.",
-       "issuetype": {
-          "name": "Bug"
-       },
-      "assignee":{"name":"batsam98"}
-    }
+      stage('JIRA') {
+    def testIssue = [fields: [ project: [id: 'AN'],
+                           summary: 'New JIRA Created from Jenkins.',
+                           description: 'Creating jira issue as build failed.',
+                           issuetype: [id: '10002']]]
+
+response = jiraNewIssue issue: testIssue, site: 'LOCAL'
+
+/*echo response.successful.toString()
+echo response.data.toString()*/
+    jiraAssignIssue idOrKey: 'AN-1', userName: 'batsam98'
+  }
   }
 }
 }
