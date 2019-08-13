@@ -38,7 +38,7 @@ node {
     }
     }
     catch(exec){
-      def testIssue = [fields: [ project: [id: 'AN'],
+      def testIssue = [fields: [ project: [id: '10001'],
                            summary: 'New JIRA Created from Jenkins.',
                            description: 'Creating jira issue as build failed.',
                            issuetype: [id: '10002']]]
