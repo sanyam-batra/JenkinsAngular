@@ -43,7 +43,7 @@ node {
                            description: 'Creating jira issue as build failed.',
                            issuetype: [id: '10002']]]
 
-response = jiraNewIssue issue: testIssue, site: 'http://localhost:8054'
+response = jiraNewIssue issue: testIssue, site: 'JIRA'
 
 echo response.successful.toString()
 echo response.data.toString()
