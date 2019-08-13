@@ -32,8 +32,21 @@ node {
     }
   }*/
   stage('Build') {
+    try {
     nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
       sh'npm run build'
+    }
+    }
+    catch(exec){
+      def testIssue = [fields: [ project: [id: 'AN'],
+                           summary: 'New JIRA Created from Jenkins.',
+                           description: 'Creating jira issue as build failed.',
+                           issuetype: [id: '10002']]]
+
+response = jiraNewIssue issue: testIssue, site: 'http://localhost:8054'
+
+echo response.successful.toString()
+echo response.data.toString()
     }
   }
   
@@ -45,24 +58,5 @@ node {
     //}
   //}
  
-  post {
-    success {
-      echo 'Success'
-    }
-    failure {
-      echo 'Failure'
-      /*stage('JIRA') {
-    def testIssue = [fields: [ project: [id: 'AN'],
-                           summary: 'New JIRA Created from Jenkins.',
-                           description: 'Creating jira issue as build failed.',
-                           issuetype: [id: '10002']]]
 
-response = jiraNewIssue issue: testIssue, site: 'http://localhost:8054'
-
-echo response.successful.toString()
-echo response.data.toString()
-    
-  }*/
-  }
-}
 }
