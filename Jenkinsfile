@@ -1,20 +1,3 @@
-/*def jiraticket() {
-
-    "fields": {
-       "project":
-       {
-          "key": "AN"
-       },
-       "summary": "Jira issue from jenkins",
-       "description": "Creating jira issue as build failed.",
-       "issuetype": {
-          "name": "Bug"
-       },
-      "assignee":{"name":"batsam98"}
-   }
-}*/
-
-
 node {
   stage('Checkout'){
     checkout scm
@@ -60,14 +43,14 @@ echo response.data.toString()
   //}
   
   stage('Build image') {
-    sh 'sudo docker build -t jenkins-angularapp:ver1 .'
+    sh 'docker build -t jenkins-angularapp:ver1 .'
   }
  
   stage('Push image') {
     withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: "DockerPass", usernameVariable: "DockerUser")]) {
-            sh 'sudo docker login -u $DockerUser -p $DockerPass'
-            sh 'sudo docker tag jenkins-angularapp:ver1 sanyambatra13/jenkins-angularapp:ver1'
-            sh 'sudo docker push sanyambatra13/jenkins-angularapp:ver1'
+            sh 'docker login -u $DockerUser -p $DockerPass'
+            sh 'docker tag jenkins-angularapp:ver1 sanyambatra13/jenkins-angularapp:ver1'
+            sh 'docker push sanyambatra13/jenkins-angularapp:ver1'
     }
   }
   
