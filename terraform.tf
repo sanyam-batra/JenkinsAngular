@@ -3,14 +3,10 @@ provider "aws" {
 }
 
 resource "aws_instance" "AngulatTestDeploy" {
-  ami           = "ami-0a313d6098716f372"
+  ami           = "ami-035b3c7efe6d061d5"
   instance_type = "t2.micro"
   key_name 	= "sanyam-terraform"
   
-  provisioner "remote-exec" {
-    inline = [
-      
-    ]
-  }
+
 } 
 
