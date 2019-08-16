@@ -42,9 +42,9 @@ echo response.data.toString()
     //}
   //}
   
-  stage('Build image') {
+  /*stage('Build image') {
     sh 'docker build -t jenkins-angularapp:ver1 .'
-  }
+  }*/
  
   stage('Push image') {
     withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: "DockerPass", usernameVariable: "DockerUser")]) {
