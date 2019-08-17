@@ -10,6 +10,12 @@ resource "aws_instance" "AngulatTestDeploy" {
   provisioner "file" {
   source      = "/var/jenkins_home/workspace/Jenkins_Angular/dockerexec.sh"
   destination = "/dockerexec.sh"
+  connection {
+    type     = "ssh"
+    user     = "ubuntu"
+    password = "ubuntu"
+
+    }
 }
 
 } 
