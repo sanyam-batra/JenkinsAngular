@@ -5,12 +5,12 @@ provider "aws" {
 }
 
 resource "aws_instance" "AngulatTestDeploy" {
-  ami           = "ami-004852354728c0e51"
+  ami           = "ami-035b3c7efe6d061d5"
   instance_type = "t2.micro"
   key_name 	= "sanyam-terraform"
   
   connection {
-    user = "ubuntu"
+    user = "ec2-user"
     private_key = "${file("/private_key")}"
     }
 
