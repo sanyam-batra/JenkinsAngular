@@ -1,7 +1,7 @@
 provider "aws" {
   region     = "us-east-1"
-  access_key = "AKIAJB6M4RZB64SAHVHA"
-  secret_key = "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"
+  access_key = "AKIAIJ6KPD6ULF4GZYWQ"
+  secret_key = "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"
 }
 
 resource "aws_instance" "AngulatTestDeploy" {
