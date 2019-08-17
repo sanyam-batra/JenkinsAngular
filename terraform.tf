@@ -8,10 +8,9 @@ resource "aws_instance" "AngulatTestDeploy" {
   key_name 	= "sanyam-terraform"
   
   connection {
-    type     = "ssh"
-    user     = "ubuntu"
-    password = "ubuntu"
-  }
+    user = "ec2-user"
+    private_key = "${file("/private_key")}"
+    }
 
 } 
 
