@@ -52,7 +52,7 @@ resource "aws_instance" "test-ec2-instance" {
   connection {
     type = "ssh"
     user = "ec2-user"
-    private_key = "${file("/private_key")}"
+    private_key = "${file("/terraform-jenkins.pem")}"
     host = "self.public_ip"
     }
 }
