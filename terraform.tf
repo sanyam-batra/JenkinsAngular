@@ -42,7 +42,7 @@ from_port = 22
 resource "aws_instance" "test-ec2-instance" {
   ami = "ami-035b3c7efe6d061d5"
   instance_type = "t2.micro"
-  key_name = "terraform-jenkins(1)"
+  key_name = "terraform-jenkins"
   security_groups = ["${aws_security_group.ingress-all-test.id}"]
   subnet_id = "${aws_subnet.subnet-uno.id}"
 }
