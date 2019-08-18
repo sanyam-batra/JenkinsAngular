@@ -56,6 +56,7 @@ echo response.data.toString()
   
   stage('Terraform') {
     sh 'terraform init'
+    sh 'terraform plan'
     sh 'terraform apply -auto-approve'
       
   }
