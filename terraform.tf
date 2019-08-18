@@ -48,10 +48,6 @@ resource "aws_instance" "test-ec2-instance" {
   provisioner "file" {
     source = "/dockerexec.sh"
     destination = "/home/ec2-user/dockerexec.sh"
-    connection {
-      type = "ssh"
-      user = "root"
-      }
     }
 }
 
