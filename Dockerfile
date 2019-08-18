@@ -1,7 +1,7 @@
 FROM node:6.10.2-alpine
 RUN mkdir -p /app
 WORKDIR /app
-COPY package.json /app/
+COPY package.json /app/package.json
 RUN ["npm", "install"]
 COPY . /app
 EXPOSE 4200/tcp
