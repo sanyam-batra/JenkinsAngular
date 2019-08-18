@@ -18,6 +18,6 @@ RUN npm install -g @angular/cli@7.3.9
 
 # add app
 COPY . /app
-
+EXPOSE 3000
 # start app
 CMD npm run start --host 0.0.0.0
