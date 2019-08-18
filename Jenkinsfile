@@ -56,8 +56,10 @@ echo response.data.toString()
   
   stage('Terraform') {
     sh 'terraform init'
-    sh 'terraform plan'
-    sh 'terraform apply -auto-approve'
+    withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'SanyamAWS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+        sh 'terraform plan'
+        sh 'terraform apply -auto-approve'
+}
       
   }
   
