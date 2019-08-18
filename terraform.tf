@@ -51,7 +51,6 @@ resource "aws_instance" "test-ec2-instance" {
     }
   connection {
     type = "ssh"
-    host = self.public.ip
     user = "ec2-user"
     private_key = "${file("/private_key")}"
     }
