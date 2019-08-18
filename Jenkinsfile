@@ -2,19 +2,19 @@ node {
   stage('Checkout'){
     checkout scm
   }
-  stage('NPM Install'){
+  /*stage('NPM Install'){
     nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
     sh 'npm install'
     //sh 'npm install npm@latest -g'
   }
-  }
+  }*/
   /*stage('Sonar') {
     def scannerHome = tool 'angular_sonar';
     withSonarQubeEnv('SonarQube') {
       sh'/opt/sonarscanner/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner'
     }
   }*/
-  stage('Build') {
+  /*stage('Build') {
     try {
     nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
       sh'npm run build'
@@ -32,7 +32,7 @@ echo response.successful.toString()
 echo response.data.toString()
      jiraAssignIssue idOrKey: 'AN-14', userName: 'batsam98',site: 'JIRA'
     }
-  }
+  }*/
   
    //stage('StartApp') {
     //nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
