@@ -42,26 +42,26 @@ echo response.data.toString()
     //}
   //}
   
-  /*stage('Build image') {
-    sh 'docker build -t jenkins-angularapp:ver3 .'
-  }*/
+  stage('Build image') {
+    sh 'docker build -t jenkins-angularapp:ver4 .'
+  }
  
-  /*stage('Push image') {
+  stage('Push image') {
     withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: "DockerPass", usernameVariable: "DockerUser")]) {
             sh 'docker login -u $DockerUser -p $DockerPass'
-            sh 'docker tag jenkins-angularapp:ver3 sanyambatra13/jenkins-angularapp:ver3'
-            sh 'docker push sanyambatra13/jenkins-angularapp:ver3'
+            sh 'docker tag jenkins-angularapp:ver4 sanyambatra13/jenkins-angularapp:ver4'
+            sh 'docker push sanyambatra13/jenkins-angularapp:ver4'
     }
-  }*/
+  }
   
-  stage('Terraform') {
+  /*stage('Terraform') {
     sh 'terraform init'
     withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'SanyamAWS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
         sh 'terraform plan'
         sh 'terraform apply -auto-approve'
 }
       
-  }
+  }*/
   
   /*stage('Connection') {
   }*/
