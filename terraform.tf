@@ -6,7 +6,7 @@ resource "aws_vpc" "test-env" {
   cidr_block = "10.0.0.0/16"
   enable_dns_hostnames = true
   enable_dns_support = true
-  tags {
+  tags = {
     Name = "test-env"
   }
 }
@@ -55,7 +55,7 @@ resource "aws_eip" "ip-test-env" {
 
 resource "aws_internet_gateway" "test-env-gw" {
   vpc_id = "${aws_vpc.test-env.id}"
-tags {
+tags = {
     Name = "test-env-gw"
   }
 }
@@ -66,7 +66,7 @@ route {
     cidr_block = "0.0.0.0/0"
     gateway_id = "${aws_internet_gateway.test-env-gw.id}"
   }
-tags {
+tags = {
     Name = "test-env-route-table"
   }
 }
