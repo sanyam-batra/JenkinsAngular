@@ -49,7 +49,7 @@ resource "aws_instance" "test-ec2-instance" {
     type = "ssh"
     user = "ec2-user"
     host = self.public_ip
-    private_key = "${file("/my-openssh-key")}"
+    private_key = "${file("~/.ssh/my-openssh-key")}"
     }
   provisioner "file" {
     source = "/dockerexec.sh"
