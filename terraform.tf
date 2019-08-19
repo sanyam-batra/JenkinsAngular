@@ -47,7 +47,7 @@ resource "aws_instance" "test-ec2-instance" {
   subnet_id = "${aws_subnet.subnet-uno.id}"
   connection {
     user = "ec2-user"
-    host = "${self.public.ip}"
+    host = self.public_ip
     private_key = "${file("/terraform-jenkins(1).pem")}"
     }
   provisioner "file" {
