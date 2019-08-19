@@ -45,6 +45,15 @@ resource "aws_instance" "test-ec2-instance" {
   key_name = "terraform-jenkins"
   security_groups = ["${aws_security_group.ingress-all-test.id}"]
   subnet_id = "${aws_subnet.subnet-uno.id}"
+  connection {
+    user = "ec2-user"
+    host = "${self.public.ip}"
+    private_key = "${file("/terraform-jenkins(1).pem")}"
+    }
+  provisioner "file" {
+    source = "/dockerexec.sh"
+    destination = "/home/ec2-user/dockerexec.sh"
+    }
 
 }
 
