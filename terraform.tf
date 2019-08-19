@@ -48,7 +48,7 @@ resource "aws_instance" "test-ec2-instance" {
   connection {
     user = "ec2-user"
     host = self.public_ip
-   
+    private_key = "${file("/my-openssh-key")}"
     }
   provisioner "file" {
     source = "/dockerexec.sh"
