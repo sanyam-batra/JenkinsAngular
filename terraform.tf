@@ -46,6 +46,7 @@ resource "aws_instance" "test-ec2-instance" {
   security_groups = ["${aws_security_group.ingress-all-test.id}"]
   subnet_id = "${aws_subnet.subnet-uno.id}"
   connection {
+    type = "ssh"
     user = "ec2-user"
     host = self.public_ip
     private_key = "${file("/my-openssh-key")}"
