@@ -49,10 +49,26 @@ resource "aws_instance" "test-ec2-instance" {
 }
 
 
+resource "aws_instance" "prod-ec2-instance" {
+  ami = "ami-035b3c7efe6d061d5"
+  instance_type = "t2.micro"
+  key_name = "terraform-jenkins"
+  security_groups = ["${aws_security_group.ingress-all-test.id}"]
+  subnet_id = "${aws_subnet.subnet-uno.id}"
+
+}
+
+
 resource "aws_eip" "ip-test-env" {
   instance = "${aws_instance.test-ec2-instance.id}"
   vpc      = true
 }
+
+resource "aws_eip" "ip-prod-env" {
+  instance = "${aws_instance.prod-ec2-instance.id}"
+  vpc      = true
+}
+
 
 resource "aws_internet_gateway" "test-env-gw" {
   vpc_id = "${aws_vpc.test-env.id}"
