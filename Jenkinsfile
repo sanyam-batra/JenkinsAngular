@@ -65,7 +65,7 @@ echo response.data.toString()
   
   stage('Connection Test Server') {
     sshagent(['SanyamKey']) {
-      sh 'scp -i my-openssh-key dockerexec.sh 52.201.186.196:/home/ec2-user'
+      sh 'scp -i terraform-jenkins.pem dockerexec.sh 52.201.186.196:/home/ec2-user'
       sh 'ssh -T -o StrictHostKeyChecking=no ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo su -'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo yum update -y'
