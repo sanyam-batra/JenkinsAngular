@@ -65,15 +65,15 @@ echo response.data.toString()
   
   stage('Connection Test Server') {
     sshagent(['SanyamKey']) {
-      sh 'ssh -T -o StrictHostKeyChecking=no ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com'
-      sh 'ssh -T sudo su -'
-      sh 'ssh -T yum update -y'
-      sh 'ssh -T yum install -y docker'
-      sh 'ssh -T service docker start'
-      sh 'ssh -T usermod -aG docker ec2-user'
-      sh 'ssh -T cd /home/ec2-user'
-      sh 'ssh -T chmod +x dockerexec.sh'
-      sh 'ssh -T ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com bash dockerexec.sh '
+      sh 'ssh -i my-openssh-key ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com'
+      sh 'ssh sudo su -'
+      sh 'ssh yum update -y'
+      sh 'ssh yum install -y docker'
+      sh 'ssh service docker start'
+      sh 'ssh usermod -aG docker ec2-user'
+      sh 'ssh cd /home/ec2-user'
+      sh 'ssh chmod +x dockerexec.sh'
+      sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com bash dockerexec.sh '
     }
   }
   
