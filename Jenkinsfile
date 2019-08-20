@@ -78,8 +78,9 @@ echo response.data.toString()
     }
   }
   
-  stage('Test Server Testing') {
+  /*stage('Test Server Testing') {
     def response = sh(script: 'curl http://ec2-52-201-186-196.compute-1.amazonaws.com:3000', returnStdout: true)
+  }
     if(response != "HTTP/1.1 200 OK") {
       currentBuild.result = 'FAILURE'
       return
@@ -97,8 +98,7 @@ echo response.data.toString()
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com cd /home/ec2-user'
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo chmod +x dockerexec.sh'
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo bash dockerexec.sh '
-          }
     }
     }
-  }
+  }*/
 }
