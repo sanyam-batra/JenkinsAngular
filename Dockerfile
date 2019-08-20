@@ -4,7 +4,7 @@ WORKDIR /app
 COPY package.json /app/package.json
 RUN ["npm", "install"]
 RUN npm install forever -g
-npm i nohup -g
+RUN npm i nohup -g
 COPY . /app
 EXPOSE 4200/tcp
-CMD ["forever", "npm", "start","/app", "--", "--host", "0.0.0.0", "--poll", "500"]
+CMD ["forever", "npm", "start", "--", "--host", "0.0.0.0", "--poll", "500"]
