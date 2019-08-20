@@ -6,4 +6,4 @@ RUN ["npm", "install"]
 RUN npm install forever -g
 COPY . /app
 EXPOSE 4200/tcp
-CMD ["forever", "npm", "start","/var/jenkins_home/workspace/Jenkins_Angular/src/app ", "--", "--host", "0.0.0.0", "--poll", "500"]
+CMD ["forever", "npm", "start","/app", "--", "--host", "0.0.0.0", "--poll", "500"]
