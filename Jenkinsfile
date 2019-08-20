@@ -63,6 +63,26 @@ echo response.data.toString()
       
   }
   
-  /*stage('Connection') {
+  stage('Connection Test Server') {
+    sshagent(['SanyamKey']) {
+      sh 'scp dockerexec.sh 52.201.186.196:/home/ec2-user'
+      sh 'ssh -o StrictHostKeyChecking=no ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com'
+      sh 'ssh sudo su -'
+      sh 'ssh sudo yum update -y'
+      sh 'sudo yum install -y docker'
+      sh 'sudo service docker start'
+      sh 'sudo usermod -aG docker ec2-user'
+      sh 'ssh cd /home/ec2-user'
+      sh 'chmod +x dockerexec.sh'
+      sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com bash dockerexec.sh '
+    }
+  }
+  
+  /*(stage('Test Server Testing') {
+    if() {
+    }
+    else {
+      
+    }
   }*/
 }
