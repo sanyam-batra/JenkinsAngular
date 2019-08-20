@@ -67,13 +67,13 @@ echo response.data.toString()
     sshagent(['SanyamKey']) {
       sh 'ssh -T -o StrictHostKeyChecking=no ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo su -'
-      sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com yum update -y'
-      sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com yum install -y docker'
-      sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com service docker start'
-      sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com usermod -aG docker ec2-user'
-      sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com cd /home/ec2-user'
-      sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com chmod +x dockerexec.sh'
-      sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com bash dockerexec.sh '
+      sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo yum update -y'
+      sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo yum install -y docker'
+      sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo service docker start'
+      sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo usermod -aG docker ec2-user'
+      sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo cd /home/ec2-user'
+      sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo chmod +x dockerexec.sh'
+      sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo bash dockerexec.sh '
     }
   }
   
