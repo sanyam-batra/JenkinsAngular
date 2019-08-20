@@ -7,4 +7,4 @@ RUN npm install forever -g
 RUN npm i nohup -g
 COPY . /app
 EXPOSE 4200/tcp
-CMD ["forever", "npm", "start", "--", "--host", "0.0.0.0", "--poll", "500"]
+CMD ["npm", "start", "--", "--host", "0.0.0.0", "--poll", "500"]
