@@ -42,7 +42,7 @@ echo response.data.toString()
     //}
   //}
   
-  stage('Build image') {
+  /*stage('Build image') {
     sh 'docker build -t jenkins-angularapp:ver6 .'
   }
  
@@ -52,7 +52,7 @@ echo response.data.toString()
             sh 'docker tag jenkins-angularapp:ver6 sanyambatra13/jenkins-angularapp:ver6'
             sh 'docker push sanyambatra13/jenkins-angularapp:ver6'
     }
-  }
+  }*/
   
   /*stage('Terraform') {
     sh 'terraform init'
