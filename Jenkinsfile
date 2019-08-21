@@ -54,14 +54,14 @@ echo response.data.toString()
     }
   }*/
   
-  /*stage('Terraform') {
+  stage('Terraform') {
     sh 'terraform init'
     withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'SanyamAWS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
         sh 'terraform plan'
         sh 'terraform apply -auto-approve'
 }
       
-  }*/
+  }
   
   stage('Connection Test Server') {
     sshagent(['SanyamKey']) {
@@ -88,7 +88,7 @@ echo response.data.toString()
     }
     else {
       stage('Connection Prod server') {
-      sshagent(['SanyamKeyAws']) {
+      sshagent(['SanyamKey']) {
       sh 'scp -i /terraform-jenkins.pem /var/jenkins_home/workspace/Jenkins_Angular/dockerexec.sh ec2-user@52.45.120.161:/home/ec2-user'
       sh 'ssh -T -o StrictHostKeyChecking=no ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com'
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo su -'
