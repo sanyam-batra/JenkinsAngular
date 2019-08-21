@@ -2,19 +2,19 @@ node {
   stage('Checkout'){
     checkout scm
   }
-  /*stage('NPM Install'){
+  stage('NPM Install'){
     nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
     sh 'npm install'
     //sh 'npm install npm@latest -g'
   }
-  }*/
+  }
   /*stage('Sonar') {
     def scannerHome = tool 'angular_sonar';
     withSonarQubeEnv('SonarQube') {
       sh'/opt/sonarscanner/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner'
     }
   }*/
-  /*stage('Build') {
+  stage('Build') {
     try {
     nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
       sh'npm run build'
@@ -32,15 +32,15 @@ echo response.successful.toString()
 echo response.data.toString()
      jiraAssignIssue idOrKey: 'AN-14', userName: 'batsam98',site: 'JIRA'
     }
-  }*/
+  }
   
-   //stage('StartApp') {
-    //nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
-      /*sh'npm install http-server -g'
-      sh'http-server -p 3000 -o'*/
-      //sh'npm run start &'
-    //}
-  //}
+   stage('StartApp') {
+    nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
+      sh'npm install http-server -g'
+      sh'http-server -p 3000 -o'
+      sh'npm run start &'
+    }
+  }
   
   /*stage('Build image') {
     sh 'docker build -t jenkins-angularapp:ver6 .'
@@ -63,7 +63,7 @@ echo response.data.toString()
       
   }*/
   
-  stage('Connection Test Server') {
+  /*stage('Connection Test Server') {
     sshagent(['SanyamKey']) {
     
       //sh 'scp -i /terraform-jenkins.pem /var/jenkins_home/workspace/Jenkins_Angular/dockerexec.sh ec2-user@52.201.186.196:/home/ec2-user'
@@ -102,5 +102,5 @@ echo response.data.toString()
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo bash dockerexec.sh '
     }
     }
-  }
+  }*/
 }
