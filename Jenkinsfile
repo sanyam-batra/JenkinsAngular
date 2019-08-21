@@ -64,7 +64,7 @@ echo response.data.toString()
   }*/
   
   stage('Connection Test Server') {
-    sshagent(['SanyamKey']) {
+    sshagent(['SanyamKeyAws']) {
       sh 'scp -i /terraform-jenkins.pem /var/jenkins_home/workspace/Jenkins_Angular/dockerexec.sh ec2-user@52.201.186.196:/home/ec2-user'
       sh 'ssh -T -o StrictHostKeyChecking=no ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo su -'
@@ -88,7 +88,7 @@ echo response.data.toString()
     }
     else {
       stage('Connection Prod server') {
-      sshagent(['SanyamKey']) {
+      sshagent(['SanyamKeyAws']) {
       sh 'scp -i /terraform-jenkins.pem /var/jenkins_home/workspace/Jenkins_Angular/dockerexec.sh ec2-user@52.45.120.161:/home/ec2-user'
       sh 'ssh -T -o StrictHostKeyChecking=no ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com'
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo su -'
