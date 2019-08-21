@@ -54,14 +54,14 @@ echo response.data.toString()
     }
   }*/
   
-  stage('Terraform') {
+  /*stage('Terraform') {
     sh 'terraform init'
     withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'SanyamAWS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
         sh 'terraform plan'
         sh 'terraform apply -auto-approve'
 }
       
-  }
+  }*/
   
   stage('Connection Test Server') {
     sshagent(['SanyamKey']) {
