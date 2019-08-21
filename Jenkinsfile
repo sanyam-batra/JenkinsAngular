@@ -76,7 +76,7 @@ echo response.data.toString()
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com cd /home/ec2-user'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo chmod +x dockerexec.sh'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo bash dockerexec.sh '
-      return
+      
     }
   }
   
