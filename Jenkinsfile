@@ -75,7 +75,7 @@ echo response.data.toString()
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo usermod -aG docker ec2-user'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com cd /home/ec2-user'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo chmod +x dockerexec.sh'
-      sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo nohup dockerexec.sh &'
+      sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo screen -S backup -d -m dockerexec.sh'
       
     }
   }
@@ -99,7 +99,7 @@ echo response.data.toString()
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo usermod -aG docker ec2-user'
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com cd /home/ec2-user'
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo chmod +x dockerexec.sh'
-      sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo nohup dockerexec.sh &'
+      sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo screen -S backup -d -m dockerexec.sh'
     }
     }
   }
