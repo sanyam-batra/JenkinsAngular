@@ -7,4 +7,4 @@ RUN ["npm", "install"]
 # RUN npm i nohup -g
 COPY . /app
 EXPOSE 4200/tcp
-CMD ["nohup", "npm", "start", "--", "--host", "0.0.0.0", "--poll", "500", "&"]
+CMD ["npm", "start", "--", "--host", "0.0.0.0", "--poll", "500"]
