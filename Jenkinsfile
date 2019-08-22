@@ -82,7 +82,7 @@ echo response.data.toString()
   }
   
   stage('Test Server Testing') {
-    def response = sh(script: 'curl http://ec2-52-201-186-196.compute-1.amazonaws.com:3000/', returnStdout: true)
+    def response = sh(script: 'curl -Is http://ec2-52-201-186-196.compute-1.amazonaws.com:3000/', returnStdout: true)
   }
     if(response != "HTTP/1.1 200 OK") {
       currentBuild.result = 'FAILURE'
