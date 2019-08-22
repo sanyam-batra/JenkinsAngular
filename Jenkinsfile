@@ -66,7 +66,7 @@ echo response.data.toString()
   stage('Connection Test Server') {
     sshagent(['SanyamKey']) {
     
-      sh 'scp -v -o StrictHostKeyChecking=no /var/jenkins_home/workspace/Jenkins_Angular/dockerexec.sh ec2-user@52.201.186.196:/home/ec2-user'
+      /*sh 'scp -v -o StrictHostKeyChecking=no /var/jenkins_home/workspace/Jenkins_Angular/dockerexec.sh ec2-user@52.201.186.196:/home/ec2-user'
       sh 'ssh -T -o StrictHostKeyChecking=no ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo su -'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo yum update -y'
@@ -74,7 +74,7 @@ echo response.data.toString()
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo service docker start'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo usermod -aG docker ec2-user'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com cd /home/ec2-user'
-      sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo chmod +x dockerexec.sh'
+      sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo chmod +x dockerexec.sh'*/
       //sh 'export JENKINS_NODE_COOKIE=dontKillMe'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo sh dockerexec.sh'
       
