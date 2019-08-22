@@ -34,13 +34,13 @@ echo response.data.toString()
     }
   }*/
   
-   /*stage('StartApp') {
+   stage('StartApp') {
     nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
       sh'npm install http-server -g'
       sh'http-server -p 3000 -o'
       sh'npm run start &'
     }
-  }*/
+  }
   
   /*stage('Build image') {
     sh 'docker build -t jenkins-angularapp:ver6 .'
@@ -63,7 +63,7 @@ echo response.data.toString()
       
   }*/
   
-  stage('Connection Test Server') {
+  /*stage('Connection Test Server') {
     sshagent(['SanyamKey']) {
     
       sh 'scp -v -o StrictHostKeyChecking=no /var/jenkins_home/workspace/Jenkins_Angular/dockerexec.sh ec2-user@52.201.186.196:/home/ec2-user'
@@ -102,5 +102,5 @@ echo response.data.toString()
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo bash dockerexec.sh '
     }
     }
-  }
+  }*/
 }
