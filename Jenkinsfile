@@ -76,7 +76,7 @@ echo response.data.toString()
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com cd /home/ec2-user'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo chmod +x dockerexec.sh'
       //sh 'export JENKINS_NODE_COOKIE=dontKillMe'
-      sh 'export JENKINS_NODE_COOKIE=dontKillMe ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo nohup dockerexec.sh &'
+      sh 'JENKINS_NODE_COOKIE=dontKillMe ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo dockerexec.sh &'
       
     }
   }
@@ -101,7 +101,7 @@ echo response.data.toString()
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com cd /home/ec2-user'
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo chmod +x dockerexec.sh'
       //sh 'export JENKINS_NODE_COOKIE=dontKillMe'
-      sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo nohup dockerexec.sh &'
+      sh 'JENKINS_NODE_COOKIE=dontKillMe ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo dockerexec.sh &'
     }
     }
   }
