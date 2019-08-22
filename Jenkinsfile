@@ -36,9 +36,9 @@ echo response.data.toString()
   
    stage('StartApp') {
     nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
-      sh'npm install http-server -g'
-      sh'http-server -p 3000 -o'
-      sh'npm run start &'
+      /*sh'npm install http-server -g'
+      sh'http-server -p 3000 -o'*/
+      sh'nohup npm run start &'
     }
   }
   
