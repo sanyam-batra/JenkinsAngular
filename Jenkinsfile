@@ -87,6 +87,7 @@ echo response.data.toString()
     echo responsecurl
   }
     if(responsecurl != "200") {
+      echo responsecurl
       currentBuild.result = 'FAILURE'
       return
     }
