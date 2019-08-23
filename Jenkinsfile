@@ -9,12 +9,7 @@ node {
     //sh 'npm install npm@latest -g'
   }
   }*/
-  /*stage('Sonar') {
-    def scannerHome = tool 'angular_sonar';
-    withSonarQubeEnv('SonarQube') {
-      sh'/opt/sonarscanner/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner'
-    }
-  }*/
+
   /*stage('Build') {
     try {
     nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
@@ -35,6 +30,15 @@ echo response.data.toString()
     }
   }*/
   
+  
+    /*stage('Sonar') {
+    def scannerHome = tool 'angular_sonar';
+    withSonarQubeEnv('SonarQube') {
+      sh'/opt/sonarscanner/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner'
+    }
+  }*/
+  
+ 
    /*stage('StartApp') {
     nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
       sh'npm install http-server -g'
@@ -83,7 +87,7 @@ echo response.data.toString()
   }
   
   stage('Test Server Testing') {
-    responsecurl = sh(script: 'curl -sL --connect-timeout 20 --max-time 30 -w "%{http_code}\\n" "http://ec2-52-201-186-196.compute-1.amazonaws.com:3000/" -o /dev/null', returnStdout: true).trim()
+    responsecurl = sh(script: 'curl -sL --connect-timeout 20 --max-time 30 -w "%{http_code}\\n" "http://ec2-52-201-186-196.compute-1.amazonaws.com:3003/" -o /dev/null', returnStdout: true).trim()
     echo responsecurl
   }
     if(responsecurl != "200") {
