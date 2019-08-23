@@ -1,4 +1,4 @@
-def responsecurl
+def responsecurl = "abc"
 node {
   stage('Checkout'){
     checkout scm
