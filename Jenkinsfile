@@ -83,14 +83,14 @@ echo response.data.toString()
   }
   
   stage('Test Server Testing') {
-    responsecurl = sh(script: 'curl -sL --connect-timeout 20 --max-time 30 -w "%{http_code}\\n" "http://ec2-52-201-186-196.compute-1.amazonaws.com:3003/" -o /dev/null', returnStdout: true)
-    echo responsecurl
+    responsecurl = sh(script: 'curl -sL --connect-timeout 20 --max-time 30 -w "%{http_code}\\n" "http://ec2-52-201-186-196.compute-1.amazonaws.com:3000/" -o /dev/null', returnStdout: true)
+    //echo responsecurl
   }
-    /*if(response != "HTTP/1.1 200 OK") {
+    if(response != "200") {
       currentBuild.result = 'FAILURE'
       return
-    }*/
-    /*else {
+    }
+    else {
       stage('Connection Prod server') {
       sshagent(['SanyamKey']) {
       sh 'scp -i /terraform-jenkins.pem /var/jenkins_home/workspace/Jenkins_Angular/dockerexec.sh ec2-user@52.45.120.161:/home/ec2-user'
@@ -103,8 +103,8 @@ echo response.data.toString()
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com cd /home/ec2-user'
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo chmod +x dockerexec.sh'
       //sh 'export JENKINS_NODE_COOKIE=dontKillMe'
-      sh 'JENKINS_NODE_COOKIE=dontKillMe ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo dockerexec.sh &'
+      sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo sh dockerexec.sh'
     }
     }
-  }*/
+  }
 }
