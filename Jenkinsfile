@@ -83,7 +83,7 @@ echo response.data.toString()
   }
   
   stage('Test Server Testing') {
-    responsecurl = sh(script: 'curl -Is http://ec2-52-201-186-196.compute-1.amazonaws.com:3003/', returnStdout: true)
+    responsecurl = sh(script: 'curl -sL --connect-timeout 20 --max-time 30 -w "%{http_code}\\n" "http://ec2-52-201-186-196.compute-1.amazonaws.com:3000/" -o /dev/null', returnStdout: true)
     echo responsecurl
   }
     /*if(response != "HTTP/1.1 200 OK") {
