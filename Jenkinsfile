@@ -47,7 +47,7 @@ echo response.data.toString()
     }
   }*/
   
-  /*stage('Build image') {
+  stage('Build image') {
     sh 'docker build -t jenkins-angularapp:ver6 .'
   }
  
@@ -57,7 +57,7 @@ echo response.data.toString()
             sh 'docker tag jenkins-angularapp:ver6 sanyambatra13/jenkins-angularapp:ver6'
             sh 'docker push sanyambatra13/jenkins-angularapp:ver6'
     }
-  }*/
+  }
   
   /*stage('Terraform') {
     sh 'terraform init'
@@ -71,8 +71,8 @@ echo response.data.toString()
   stage('Connection Test Server') {
     sshagent(['SanyamKey']) {
     
-      /*sh 'scp -v -o StrictHostKeyChecking=no /var/jenkins_home/workspace/Jenkins_Angular/dockerexec.sh ec2-user@52.201.186.196:/home/ec2-user'
-      sh 'ssh -T -o StrictHostKeyChecking=no ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com'
+      sh 'scp -v -o StrictHostKeyChecking=no /var/jenkins_home/workspace/Jenkins_Angular/dockerexec.sh ec2-user@52.201.186.196:/home/ec2-user'
+      /*sh 'ssh -T -o StrictHostKeyChecking=no ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo su -'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo yum update -y'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo yum install -y docker'
@@ -98,8 +98,8 @@ echo response.data.toString()
     else {
       stage('Connection Prod server') {
       sshagent(['SanyamKey']) {
-      /*sh 'scp -v -o StrictHostKeyChecking=no /var/jenkins_home/workspace/Jenkins_Angular/dockerexec.sh ec2-user@52.45.120.161:/home/ec2-user'
-      sh 'ssh -T -o StrictHostKeyChecking=no ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com'
+      sh 'scp -v -o StrictHostKeyChecking=no /var/jenkins_home/workspace/Jenkins_Angular/dockerexec.sh ec2-user@52.45.120.161:/home/ec2-user'
+      /*sh 'ssh -T -o StrictHostKeyChecking=no ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com'
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo su -'
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo yum update -y'
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo yum install -y docker'
