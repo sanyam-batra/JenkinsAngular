@@ -47,7 +47,7 @@ echo response.data.toString()
     }
   }*/
   
-  stage('Build image') {
+  /*stage('Build image') {
     sh 'docker build -t jenkins-angularapp:latest .'
   }
  
@@ -57,7 +57,7 @@ echo response.data.toString()
             sh 'docker tag jenkins-angularapp:latest sanyambatra13/jenkins-angularapp:latest'
             sh 'docker push sanyambatra13/jenkins-angularapp:latest'
     }
-  }
+  }*/
   
   /*stage('Terraform') {
     sh 'terraform init'
@@ -71,7 +71,7 @@ echo response.data.toString()
   stage('Connection Test Server') {
     sshagent(['SanyamKey']) {
     
-      sh 'scp -v -o StrictHostKeyChecking=no /var/jenkins_home/workspace/Jenkins_Angular/dockerexec.sh ec2-user@52.201.186.196:/home/ec2-user'
+      //sh 'scp -v -o StrictHostKeyChecking=no /var/jenkins_home/workspace/Jenkins_Angular/dockerexec.sh ec2-user@52.201.186.196:/home/ec2-user'
       /*sh 'ssh -T -o StrictHostKeyChecking=no ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo su -'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo yum update -y'
@@ -87,7 +87,7 @@ echo response.data.toString()
   }
   
   stage('Test Server Testing') {
-    responsecurl = sh(script: 'curl -sL --connect-timeout 20 --max-time 30 -w "%{http_code}\\n" "http://ec2-52-201-186-196.compute-1.amazonaws.com:3003/" -o /dev/null', returnStdout: true).trim()
+    responsecurl = sh(script: 'curl -sL --connect-timeout 20 --max-time 30 -w "%{http_code}\\n" "http://ec2-52-201-186-196.compute-1.amazonaws.com:3000/" -o /dev/null', returnStdout: true).trim()
     echo responsecurl
   }
     if(responsecurl != "200") {
