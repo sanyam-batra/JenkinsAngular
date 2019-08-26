@@ -90,7 +90,7 @@ echo response.data.toString()
     responsecurl = sh(script: 'curl -s -o /dev/null -w "%{http_code}" http://52.201.186.196:3000/', returnStdout: true)
     echo responsecurl
   }
-    if(responsecurl != "200") {
+    if(responsecurl != "000") {
       //echo responsecurl
       currentBuild.result = 'FAILURE'
       return
