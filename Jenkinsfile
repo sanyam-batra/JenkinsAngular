@@ -30,14 +30,14 @@ echo response.data.toString()
     }
   }*/
   
-  
-    /*stage('Sonar') {
+  node('sanyamslave') {
+    stage('Sonar') {
     def scannerHome = tool 'angular_sonar';
     withSonarQubeEnv('SonarQube') {
       sh'/opt/sonarscanner/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner'
     }
-  }*/
-  
+  }
+  }
  
    /*stage('StartApp') {
     nodejs(nodeJSInstallationName: 'nodejs1', configId: null){
@@ -68,48 +68,46 @@ echo response.data.toString()
       
   }*/
   
-  stage('Connection Test Server') {
+  /*stage('Connection Test Server') {
     sshagent(['SanyamKey']) {
     
-      //sh 'scp -v -o StrictHostKeyChecking=no /var/jenkins_home/workspace/Jenkins_Angular/dockerexec.sh ec2-user@52.201.186.196:/home/ec2-user'
-      /*sh 'ssh -T -o StrictHostKeyChecking=no ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com'
+      sh 'scp -v -o StrictHostKeyChecking=no /var/jenkins_home/workspace/Jenkins_Angular/dockerexec.sh ec2-user@52.201.186.196:/home/ec2-user'
+      sh 'ssh -T -o StrictHostKeyChecking=no ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo su -'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo yum update -y'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo yum install -y docker'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo service docker start'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo usermod -aG docker ec2-user'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com cd /home/ec2-user'
-      sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo chmod +x dockerexec.sh'*/
-      //sh 'export JENKINS_NODE_COOKIE=dontKillMe'
+      sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo chmod +x dockerexec.sh'
       sh 'ssh ec2-user@ec2-52-201-186-196.compute-1.amazonaws.com sudo sh dockerexec.sh'
       
     }
-  }
+  }*/
   
   /*stage('Test Server Testing') {
-    //responsecurl = sh(script: 'curl -s -o /dev/null -w "%{http_code}" http://52.201.186.196:3000/', returnStdout: true)
+    responsecurl = sh(script: 'curl -s -o /dev/null -w "%{http_code}" http://52.201.186.196:3000/', returnStdout: true)
     echo responsecurl
   }
     if(responsecurl != "200") {
-      //echo responsecurl
+      echo responsecurl
       currentBuild.result = 'FAILURE'
       return
-    }*/
-    //else {
+    }
+    else {
       stage('Connection Prod server') {
       sshagent(['SanyamKey']) {
       sh 'scp -v -o StrictHostKeyChecking=no /var/jenkins_home/workspace/Jenkins_Angular/dockerexec.sh ec2-user@52.45.120.161:/home/ec2-user'
-      /*sh 'ssh -T -o StrictHostKeyChecking=no ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com'
+      sh 'ssh -T -o StrictHostKeyChecking=no ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com'
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo su -'
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo yum update -y'
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo yum install -y docker'
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo service docker start'
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo usermod -aG docker ec2-user'
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com cd /home/ec2-user'
-      sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo chmod +x dockerexec.sh'*/
-      //sh 'export JENKINS_NODE_COOKIE=dontKillMe'
+      sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo chmod +x dockerexec.sh'
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo sh dockerexec.sh'
     }
-    //}
-  }
+    }
+  }*/
 }
