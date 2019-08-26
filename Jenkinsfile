@@ -1,4 +1,4 @@
-def responsecurl
+def responsecurl=200
 node {
   stage('Checkout'){
     checkout scm
@@ -87,10 +87,10 @@ echo response.data.toString()
   }
   
   stage('Test Server Testing') {
-    responsecurl = sh(script: 'curl -s -o /dev/null -w "%{http_code}" http://52.201.186.196:3000/', returnStdout: true)
+    //responsecurl = sh(script: 'curl -s -o /dev/null -w "%{http_code}" http://52.201.186.196:3000/', returnStdout: true)
     echo responsecurl
   }
-    if(responsecurl != "000") {
+    if(responsecurl != "200") {
       //echo responsecurl
       currentBuild.result = 'FAILURE'
       return
