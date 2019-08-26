@@ -1,4 +1,4 @@
-def responsecurl=200
+def responsecurl
 node {
   stage('Checkout'){
     checkout scm
@@ -86,7 +86,7 @@ echo response.data.toString()
     }
   }
   
-  stage('Test Server Testing') {
+  /*stage('Test Server Testing') {
     //responsecurl = sh(script: 'curl -s -o /dev/null -w "%{http_code}" http://52.201.186.196:3000/', returnStdout: true)
     echo responsecurl
   }
@@ -94,8 +94,8 @@ echo response.data.toString()
       //echo responsecurl
       currentBuild.result = 'FAILURE'
       return
-    }
-    else {
+    }*/
+    //else {
       stage('Connection Prod server') {
       sshagent(['SanyamKey']) {
       sh 'scp -v -o StrictHostKeyChecking=no /var/jenkins_home/workspace/Jenkins_Angular/dockerexec.sh ec2-user@52.45.120.161:/home/ec2-user'
@@ -110,6 +110,6 @@ echo response.data.toString()
       //sh 'export JENKINS_NODE_COOKIE=dontKillMe'
       sh 'ssh ec2-user@ec2-52-45-120-161.compute-1.amazonaws.com sudo sh dockerexec.sh'
     }
-    }
+    //}
   }
 }
