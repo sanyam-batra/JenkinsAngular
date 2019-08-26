@@ -87,7 +87,7 @@ echo response.data.toString()
   }
   
   stage('Test Server Testing') {
-    responsecurl = sh(script: 'curl -s -o /dev/null -w "%{http_code}" http://52.201.186.196:3000/', returnStdout: true).trim()
+    responsecurl = sh(script: 'curl -s -o /dev/null -w "%{http_code}" http://52.201.186.196:3000/', returnStdout: true)
     echo responsecurl
   }
     if(responsecurl != "200") {
