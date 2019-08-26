@@ -48,14 +48,14 @@ echo response.data.toString()
   }*/
   
   stage('Build image') {
-    sh 'docker build -t jenkins-angularapp:ver6 .'
+    sh 'docker build -t jenkins-angularapp:latest .'
   }
  
   stage('Push image') {
     withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: "DockerPass", usernameVariable: "DockerUser")]) {
             sh 'docker login -u $DockerUser -p $DockerPass'
-            sh 'docker tag jenkins-angularapp:ver6 sanyambatra13/jenkins-angularapp:ver6'
-            sh 'docker push sanyambatra13/jenkins-angularapp:ver6'
+            sh 'docker tag jenkins-angularapp:latest sanyambatra13/jenkins-angularapp:latest'
+            sh 'docker push sanyambatra13/jenkins-angularapp:latest'
     }
   }
   
